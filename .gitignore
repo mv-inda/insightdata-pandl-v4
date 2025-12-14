@@ -1,0 +1,11 @@
+﻿# Dependencies
+node_modules/
+
+# Build artifacts
+/dist/
+*.zip
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

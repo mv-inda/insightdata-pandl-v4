@@ -1,0 +1,8 @@
+{
+	"name" : "InsightData Profit & Loss Statement v4",
+	"description" : "Extension for displaying Profit & Loss Statement version 4.0" ,
+	"icon" : "table",
+	"type" : "visualization",
+	"version": "4.0",
+	"author": "Maarten Vandenryt (InsightData)"
+}
