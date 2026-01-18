@@ -1,5 +1,5 @@
-define( [], function () {
-	'use strict';
+define([], function () {
+    'use strict';
     return {
         type: 'items',
         component: 'accordion',
@@ -17,62 +17,66 @@ define( [], function () {
             //         }
             //     }
             // },            
-            dimensions: {        
+            dimensions: {
                 uses: 'dimensions',
                 min: 1,
                 max: 10,
-                items: {                   
+                items: {
                     CalculateTotal: {
                         ref: 'qOtherTotalSpec.qTotalMode',
                         component: 'switch',
-                        type: 'string',    
+                        type: 'string',
                         label: 'Calculate total expression',
                         options: [{
                             value: 'TOTAL_OFF',
                             label: 'Off'
-                            },
-                            {
+                        },
+                        {
                             value: 'TOTAL_EXPR',
                             label: 'On'
-                            }],                      
-                        defaultValue: 'TOTAL_OFF',                        
-                    },                    
+                        }],
+                        defaultValue: 'TOTAL_OFF',
+                    },
                     totalLabel: {
                         ref: 'qDef.totalLabel',
-                        type: 'string',                               
+                        type: 'string',
                         label: 'Total label',
                         expression: 'optional',
-                        show: function(e){return e.qOtherTotalSpec.qTotalMode == 'TOTAL_EXPR'},
+                        show: function (e) { return e.qOtherTotalSpec.qTotalMode == 'TOTAL_EXPR' },
                     },
                     showTotalColumn: {
-                        ref: 'qDef.showTotalColumn',                        
-                        type: 'string',                                 
+                        ref: 'qDef.showTotalColumn',
+                        type: 'string',
                         label: 'Show total (yes or no)',
-                        expression: 'optional',                              
+                        expression: 'optional',
                         defaultValue: 'yes',
-                        show: function(e){return e.qOtherTotalSpec.qTotalMode == 'TOTAL_EXPR'},
-                    }                                    
-                }                                                                               
+                        show: function (e) { return e.qOtherTotalSpec.qTotalMode == 'TOTAL_EXPR' },
+                    }
+                }
             },
             measures: {
                 uses: "measures",
                 min: 1,
                 max: 20,
-                items: {      
+                items: {
                     isPercentage: {
                         ref: 'qDef.isPercentage',
                         type: 'boolean',
                         component: 'switch',
                         label: 'Is percentage',
-                        defaultValue: false,                  
+                        defaultValue: false,
                         options: [
-                            {value: true,
-                             label: 'Yes'},
-                            {value: false,
-                             label: 'No'}                                    
-                            ]                        
-                    },                    
-                    percentageCalcOption:{
+                            {
+                                value: true,
+                                label: 'Yes'
+                            },
+                            {
+                                value: false,
+                                label: 'No'
+                            }
+                        ]
+                    },
+                    percentageCalcOption: {
                         ref: 'qDef.percentageCalcOption',
                         type: 'string',
                         component: 'dropdown',
@@ -80,145 +84,156 @@ define( [], function () {
                         options: [{
                             value: 'divide',
                             label: 'Divide by top row'
-                        },{
+                        }, {
                             value: 'substract',
                             label: 'Substract previous 2 columns'
                         },
-                        ,{
+                            , {
                             value: 'do not calculate',
                             label: 'Do not calculate'
                         }]
-                    },                    
-                        color_type: {
-                            type: "string",
-                            component: "buttongroup",
-                            label: "Color Type",
-                            ref: "qDef.colorType",
-                            options: [{
-                                value: "non",
-                                label: "Non"                                    
-                            },{
-                                value: "pos_or_neg",
-                                label: "+ or -",                                    
-                            },{
-                                value: "exp",
-                                label: "Exp.",                                    
-                            }],
-                            defaultValue: "non"
-                        },
-                        color_exp: {
-                            ref: 'qDef.colorExp',
-                            type: 'string',                               
-                            label: 'Color',
-                            expression: 'optional',
-                            show: function(e){return e.qDef.colorType === 'exp'},
-                        },                         
-                        color_reverse: {
-                            ref: 'qDef.colorReverse',
-                            type: 'boolean',
-                            component: 'switch',
-                            label: 'Reverse color',
-                            defaultValue: false,
-                            show: function(e){return e.qDef.colorType == 'pos_or_neg'},
-                            options: [
-                                {value: true,
-                                label: 'Yes'},
-                                {value: false,
-                                label: 'No'}                                    
-                            ]
-                        },                        
-                        pos_color: {
-                            ref: 'qDef.posColor',
-                            type: 'string',                            
-                            defaultValue: '#b2df8a',
-                            label: 'Positive color',
-                            show: function(e){return e.qDef.colorType === 'pos_or_neg'},
-                        },
-                        neg_color: {
-                            ref: 'qDef.negColor',
-                            type: 'string',                            
-                            defaultValue: '#fb9a99',
-                            label: 'Negative color',
-                            show: function(e){return e.qDef.colorType == 'pos_or_neg'},
-                        }
+                    },
+                    color_type: {
+                        type: "string",
+                        component: "buttongroup",
+                        label: "Color Type",
+                        ref: "qDef.colorType",
+                        options: [{
+                            value: "non",
+                            label: "Non"
+                        }, {
+                            value: "pos_or_neg",
+                            label: "+ or -",
+                        }, {
+                            value: "exp",
+                            label: "Exp.",
+                        }],
+                        defaultValue: "non"
+                    },
+                    color_exp: {
+                        ref: 'qDef.colorExp',
+                        type: 'string',
+                        label: 'Color',
+                        expression: 'optional',
+                        show: function (e) { return e.qDef.colorType === 'exp' },
+                    },
+                    color_reverse: {
+                        ref: 'qDef.colorReverse',
+                        type: 'boolean',
+                        component: 'switch',
+                        label: 'Reverse color',
+                        defaultValue: false,
+                        show: function (e) { return e.qDef.colorType == 'pos_or_neg' },
+                        options: [
+                            {
+                                value: true,
+                                label: 'Yes'
+                            },
+                            {
+                                value: false,
+                                label: 'No'
+                            }
+                        ]
+                    },
+                    pos_color: {
+                        ref: 'qDef.posColor',
+                        type: 'string',
+                        defaultValue: '#b2df8a',
+                        label: 'Positive color',
+                        show: function (e) { return e.qDef.colorType === 'pos_or_neg' },
+                    },
+                    neg_color: {
+                        ref: 'qDef.negColor',
+                        type: 'string',
+                        defaultValue: '#fb9a99',
+                        label: 'Negative color',
+                        show: function (e) { return e.qDef.colorType == 'pos_or_neg' },
+                    }
                 }
-            } ,                  
+            },
             sorting: {
                 uses: "sorting"
-            },  
-            addons: { 
-                uses: "addons",            
-                items: {            
-                     dataHandling: {            
-                          uses: "dataHandling"            
-                     },
-                     additionalCalculations: {
+            },
+            addons: {
+                uses: "addons",
+                items: {
+                    dataHandling: {
+                        uses: "dataHandling"
+                    },
+                    additionalCalculations: {
                         type: "items",
                         label: "Additional calculations",
                         items: {
+                            percentageLineBase: {
+                                ref: 'qDef.percentageLineBase',
+                                type: 'string',
+                                defaultValue: '',
+                                label: 'Percentage Line Base (defaults to first line if blank)',
+                                expression: 'optional'
+                            },
                             percentageLineDims: {
                                 ref: 'qDef.percentageLineDims',
-                                type: 'string',                            
+                                type: 'string',
                                 defaultValue: '',
                                 label: 'Percentage Line Dims',
                                 expression: 'optional'
                             },
                             percentageLocale: {
                                 ref: 'qDef.percentageLocale',
-                                type: 'string',                            
+                                type: 'string',
                                 defaultValue: 'nl-BE',
                                 label: 'Percentage Locale'
                             },
                             percentageNoOfDecimals: {
                                 ref: 'qDef.percentageNoOfDecimals',
-                                type: 'integer',                            
+                                type: 'integer',
                                 defaultValue: 2,
                                 label: 'Percentage Number of Decimals'
                             }
                         }
-                     },
-                     visibility: {
+                    },
+                    visibility: {
                         type: "items",
                         label: "Visibility",
                         items: {
                             collapsedLevels: {
                                 ref: 'qDef.collapsedLevels',
-                                type: 'string',                            
+                                type: 'string',
                                 defaultValue: '',
                                 label: 'Collapsed Levels',
                                 expression: 'optional'
                             },
                             expandedDims: {
                                 ref: 'qDef.expandedDims',
-                                type: 'string',                            
+                                type: 'string',
                                 defaultValue: '',
                                 label: 'Expanded Dims',
                                 expression: 'optional'
                             },
                             collapsedDims: {
                                 ref: 'qDef.collapsedDims',
-                                type: 'string',                            
+                                type: 'string',
                                 defaultValue: '',
                                 label: 'Collapsed Dims',
                                 expression: 'optional'
-                            }                            
+                            }
                         }
-                     },
-                     styling: {
+                    },
+                    styling: {
                         type: "items",
                         label: "Styling",
                         items: {
-                            firstRowStyle: {
-                                ref: 'qDef.firstRowStyle',                                
+                            percentageBaseRowStyle: {
+                                ref: 'qDef.percentageBaseRowStyle',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
                                 defaultValue: 'font-weight: bold;\nborder-bottom: 2px solid #ff7f00 !important;\nbackground-color: #f5f5f5',
-                                label: 'First Row Style',
+                                label: 'Percentage Line Base Row Style (first row when Percentage Line Base is blank)',
                                 expression: 'optional'
                             },
                             baseRowStyle: {
-                                ref: 'qDef.baseRowStyle',                                
+                                ref: 'qDef.baseRowStyle',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
@@ -227,7 +242,7 @@ define( [], function () {
                                 expression: 'optional'
                             },
                             sumRowStyle: {
-                                ref: 'qDef.sumRowStyle',                                
+                                ref: 'qDef.sumRowStyle',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
@@ -236,16 +251,16 @@ define( [], function () {
                                 expression: 'optional'
                             },
                             percentageRowStyle: {
-                                ref: 'qDef.percentageRowStyle',                                
+                                ref: 'qDef.percentageRowStyle',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
                                 defaultValue: 'font-weight: bold;\nfont-style: italic;\nborder-bottom: 2px solid #ff7f00 !important;\nbackground-color:  #f5f5f5;',
                                 label: 'Percentage Row Style',
                                 expression: 'optional'
-                            },                            
+                            },                           
                             rowLevel1Style: {
-                                ref: 'qDef.rowLevel1Style',                                
+                                ref: 'qDef.rowLevel1Style',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
@@ -254,7 +269,7 @@ define( [], function () {
                                 expression: 'optional'
                             },
                             rowLevel2Style: {
-                                ref: 'qDef.rowLevel2Style',                                
+                                ref: 'qDef.rowLevel2Style',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
@@ -263,7 +278,7 @@ define( [], function () {
                                 expression: 'optional'
                             },
                             rowLevel3Style: {
-                                ref: 'qDef.rowLevel3Style',                                
+                                ref: 'qDef.rowLevel3Style',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
@@ -272,7 +287,7 @@ define( [], function () {
                                 expression: 'optional'
                             },
                             rowLevel4Style: {
-                                ref: 'qDef.rowLevel4Style',                                
+                                ref: 'qDef.rowLevel4Style',
                                 type: 'string',
                                 component: 'textarea',
                                 rows: 4,
@@ -281,12 +296,37 @@ define( [], function () {
                                 expression: 'optional'
                             },
                         }
-                     }              
-                }           
-            } ,                  
+                    },
+                    customStyles: {
+                        type: 'array',
+                        label: 'Custom Row Styles',
+                        ref: 'qDef.customStyles',
+                        itemTitleRef: 'dims',
+                        allowAdd: true,
+                        allowRemove: true,
+                        addTranslation: "Add Style",
+                        items: {
+                            dims: {
+                                type: 'string',
+                                label: 'Dims (seperated with ;)',
+                                ref: 'dims',
+                                defaultValue: '',
+                                expression: 'optional'
+                            },
+                            style: {
+                                type: 'string',
+                                label: 'Style',
+                                ref: 'style',
+                                defaultValue: '',
+                                expression: 'optional'
+                            }
+                        }
+                    }
+                }
+            },
             appearancePanel: {
-                uses: 'settings'                
-            }          
+                uses: 'settings'
+            }
         }
     }
 });

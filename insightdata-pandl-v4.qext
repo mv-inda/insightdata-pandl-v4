@@ -3,6 +3,6 @@
 	"description" : "Extension for displaying Profit & Loss Statement version 4.0" ,
 	"icon" : "table",
 	"type" : "visualization",
-	"version": "4.1",
+	"version": "4.2",
 	"author": "Maarten Vandenryt (InsightData)"
 }
